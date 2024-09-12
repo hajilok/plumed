@@ -4,6 +4,7 @@ import interactWithProxy from "./PlumeTestnet/checkin.js";
 import swap from './PlumeTestnet/swap.js';
 import stake from './PlumeTestnet/stake.js';
 import vote from './PlumeTestnet/vote.js';
+import mint from './PlumeTestnet/mint.js';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -17,6 +18,7 @@ const main = async (privatekey) => {
         const getStake = await stake(privatekey)
         const getVote = await vote(privatekey)
         const checkIn = await interactWithProxy(privatekey)
+        const getMint = await mint(privatekey)
         const getxHash = getStake.logs[0].transactionHash
         const blockhash = getSwap.logs[0].transactionHash
         const address = getSwap.from
@@ -36,6 +38,7 @@ const main = async (privatekey) => {
 
         const txlink = `Address\n ${address} Succes Swap ,  Your tx id = https://testnet-explorer.plumenetwork.xyz/tx/${blockhash}\n, Success Stake, Your link https://testnet-explorer.plumenetwork.xyz/tx/${getxHash}  ` 
         console.log(txlink)
+        console.log(`Success Mint here is your tx : https://testnet-explorer.plumenetwork.xyz/tx/${getMint.logs[0].transactionHash}`)
   
     } catch (error) {
         console.log(error)
