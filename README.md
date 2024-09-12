@@ -29,3 +29,13 @@ And insert with
 ```
 PRIVATE_KEY=0XYOURPRIVATEKEY
 ```
+
+
+### If there is an error using index.js, just use main.js but there is an auto swap feature for Minato Testnet, USing main.js not create file ``.env``
+```
+node main.js
+```
+
+```
+node index.js
+```
