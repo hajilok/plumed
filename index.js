@@ -42,7 +42,6 @@ const main = async (privatekey) => {
         console.log(txlink)
         console.log(`Success Mint here is your tx : https://testnet-explorer.plumenetwork.xyz/tx/${getMint.logs[0].transactionHash}`)
         console.log(minato)
-        console.log(getJudi)
     } catch (error) {
         console.log(error)
     }
